@@ -1,18 +1,18 @@
-# PORTADA
+# COVER PAGE
 # ================================================================
-#2530090_MartinezReyesJoseAlejandro
-#  Grupo: 103 ó 1-1
+# 2530090_MartinezReyesJoseAlejandro
+# Group: 103 or 1-1
 # ================================================================
 
 
 # ================================================================
 # EXECUTIVE SUMMARY
 # ================================================================
-# Control structures in Python such as if, for, and while are used
-# to make decisions and repeat actions. These structures are basic
-# tools for solving programming problems such as validations,
-# calculations, authentication systems, menus, and patterns.
-# This document includes six exercises using these structures.
+# Control structures in Python like if, for, and while help the
+# program make decisions and repeat tasks. They are used to solve
+# simple problems such as checking data, doing calculations,
+# controlling logins, showing menus, and creating patterns.
+# This file contains six exercises using these ideas.
 # ================================================================
 
 
@@ -29,18 +29,18 @@
 
 
 # ================================================================
-# 7.1 PROBLEM 1: Sum and even sum
+# 7.1 PROBLEM 1: Total sum and even numbers sum
 # ================================================================
 # Description:
-# This program calculates the sum from 1 to N and the sum of even
-# numbers only.
+# This program calculates the total sum from 1 to N and also
+# calculates the sum of only the even numbers.
 #
 # Inputs:
-# - number (int)
+# - user_number (int)
 #
 # Outputs:
 # - Total sum
-# - Even numbers sum
+# - Even sum
 #
 # Validations:
 # - Must be a valid integer
@@ -48,24 +48,24 @@
 # ================================================================
 """
 try:
-    number = int(input("Enter a number: "))
+    user_number = int(input("Enter a number: "))
 except:
-    number = 0
+    user_number = 0
 
-sum_total = 0
-sum_even = 0
+total_sum = 0
+even_sum = 0
 
-if number > 1:
-    for value in range(1, number + 1):
-        sum_total += value
-        if value % 2 == 0:
-            sum_even += value
+if user_number > 1:
+    for num in range(1, user_number + 1):
+        total_sum += num
+        if num % 2 == 0:
+            even_sum += num
 
-if sum_total == 0:
+if total_sum == 0:
     print("Error: invalid input")
 else:
-    print("Total:", sum_total)
-    print("Even:", sum_even)
+    print("Total sum:", total_sum)
+    print("Even sum:", even_sum)
 """
 
 
@@ -74,33 +74,33 @@ else:
 # 7.2 PROBLEM 2: Multiplication table
 # ================================================================
 # Description:
-# This program prints the multiplication table for a base number.
+# This program prints the multiplication table of a base number.
 #
 # Inputs:
-# - base (int)
-# - limit (int)
+# - base_value (int)
+# - max_limit (int)
 #
 # Outputs:
 # - Multiplication results
 #
 # Validations:
-# - Both must be valid integers
+# - Both values must be valid integers
 # - Limit must be positive
 # ================================================================
 """
 try:
-    base = int(input("Enter base: "))
-    limit = int(input("Enter limit: "))
+    base_value = int(input("Enter base number: "))
+    max_limit = int(input("Enter limit: "))
 except:
-    limit = 0
+    max_limit = 0
 
-count = 1
+multiplier = 1
 
-if limit > 0:
-    for _ in range(limit):
-        result = base * count
-        print(f"{base} x {count} = {result}")
-        count += 1
+if max_limit > 0:
+    for _ in range(max_limit):
+        table_result = base_value * multiplier
+        print(f"{base_value} x {multiplier} = {table_result}")
+        multiplier += 1
 else:
     print("Error: invalid input")
 """
@@ -111,78 +111,78 @@ else:
 # 7.3 PROBLEM 3: Average of numbers
 # ================================================================
 # Description:
-# This program stores several numbers and calculates their average.
-# The process ends when the user enters 0.
+# This program stores several numbers and calculates the average.
+# The process finishes when the user enters 0.
 #
 # Inputs:
-# - Numbers (float)
+# - Values (float)
 #
 # Outputs:
 # - Average
-# - Total quantity of numbers
+# - Quantity of values
 # ================================================================
 """
-data_list = []
-stop = None
+numbers_list = []
+finish_flag = False
 
-while stop != "0":
-    value = input("Enter a number: ")
-    if value == "0":
-        break
-    try:
-        data_list.append(float(value))
-    except:
-        print("Error: Invalid input")
+while not finish_flag:
+    user_input = input("Enter a number: ")
 
-    stop = input("To finish, enter 0: ")
+    if user_input == "0":
+        finish_flag = True
+    else:
+        try:
+            numbers_list.append(float(user_input))
+        except:
+            print("Error: Invalid number")
 
-total_items = len(data_list)
-total_sum = 0
+total_values = len(numbers_list)
+sum_values = 0
 
-if total_items == 0:
-    print("Error: No data")
+if total_values == 0:
+    print("Error: No data entered")
 else:
-    for item in data_list:
-        total_sum += item
+    for value in numbers_list:
+        sum_values += value
 
-    average = total_sum / total_items
-    print("Average:", average)
-    print("Quantity of numbers:", total_items)
+    average_value = sum_values / total_values
+    print("Average:", average_value)
+    print("Quantity of numbers:", total_values)
 """
 
 
 
 # ================================================================
-# 7.4 PROBLEM 4: Password attempts
+# 7.4 PROBLEM 4: Password validation with attempts
 # ================================================================
 # Description:
-# This program validates a password with only three attempts.
+# This program allows only three attempts to enter the password.
 #
 # Inputs:
-# - password (string)
+# - user_password (string)
 #
 # Outputs:
-# - Access result
+# - Login status
 # ================================================================
 """
-correct_password = "admin123"
-tries = 0
+main_password = "admin123"
+attempts = 0
 
-while tries < 3:
-    user_password = input("Enter your password: ")
+while attempts < 3:
+    entered_password = input("Enter your password: ")
 
-    if tries == 1:
-        print("This is your last attempt")
+    if attempts == 1:
+        print("Warning: last attempt")
 
-    if user_password == correct_password:
-        print("Login success")
+    if entered_password == main_password:
+        print("Login successful")
         break
     else:
         print("Incorrect password")
 
-    tries += 1
+    attempts += 1
 
-if tries >= 3:
+if attempts >= 3:
     print("Too many attempts: Account locked")
 """
 
@@ -192,17 +192,18 @@ if tries >= 3:
 # 7.5 PROBLEM 5: Menu with counter
 # ================================================================
 # Description:
-# This program displays a menu with different options.
+# This program displays a menu and allows the user to interact
+# with a counter.
 #
 # Inputs:
-# - Menu option
+# - Menu option (int)
 #
 # Outputs:
-# - Messages and counter value
+# - Messages and current counter value
 # ================================================================
 """
-option = 1
-counter = 0
+menu_option = 1
+count_value = 0
 
 while True:
     print("Menu:\
@@ -211,20 +212,20 @@ while True:
 \n3: Increase counter\
 \n0: Exit")
 
-    option = input("Select an option: ")
+    menu_option = input("Select an option: ")
 
     try:
-        option = int(option)
+        menu_option = int(menu_option)
     except:
-        option = 9
+        menu_option = -1
 
-    if option == 1:
+    if menu_option == 1:
         print("HELLO!!")
-    elif option == 2:
-        print(f"Current counter: {counter}")
-    elif option == 3:
-        counter += 1
-    elif option == 0:
+    elif menu_option == 2:
+        print("Current counter:", count_value)
+    elif menu_option == 3:
+        count_value += 1
+    elif menu_option == 0:
         print("Good bye!!")
         break
     else:
@@ -237,27 +238,27 @@ while True:
 # 7.6 PROBLEM 6: Star pyramid
 # ================================================================
 # Description:
-# This program prints a pyramid made of stars.
+# This program prints a star pyramid pattern based on the size.
 #
 # Inputs:
-# - size (int)
+# - pyramid_size (int)
 #
 # Outputs:
-# - Pyramid pattern
+# - Star pattern
 # ================================================================
 """
 try:
-    size = int(input("Enter the size: "))
+    pyramid_size = int(input("Enter the size: "))
 except:
     print("Error: Invalid input")
-    size = 0
+    pyramid_size = 0
 
-if size > 0:
-    for i in range(1, size + 1):
-        print("*" * i)
+if pyramid_size > 0:
+    for level in range(1, pyramid_size + 1):
+        print("*" * level)
 
-    for i in range(size, 0, -1):
-        print("*" * i)
+    for level in range(pyramid_size, 0, -1):
+        print("*" * level)
 else:
     print("Error: Invalid input")
 """
@@ -267,8 +268,19 @@ else:
 # ================================================================
 # CONCLUSIONS
 # ================================================================
-# Loops and conditional statements allow solving repetitive and
-# logical problems efficiently. Input validation avoids runtime
-# errors and ensures reliable results. These concepts are essential
-# for basic programming development.
+# Control structures help a program decide what to do and repeat
+# actions when needed. Using if, for, and while makes it possible
+# to solve everyday problems like checking data, showing menus,
+# and creating patterns. Validating input helps the program avoid
+# errors and work correctly.
+# ================================================================
+
+
+# ================================================================
+# REFERENCES
+# ================================================================
+# 1) Python Documentation - Control Flow
+# 2) W3Schools - Python Loops and Conditions
+# 3) RealPython - Input Validation in Python
+# 4) Class Notes – Control Structures
 # ================================================================
